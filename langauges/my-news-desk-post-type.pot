@@ -1,0 +1,132 @@
+# Copyright (C) 2021 Trippple
+# This file is distributed under the same license as the MyNewsDesk PostType Viewer plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: MyNewsDesk PostType Viewer 1.0.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/my-news-desk-post-type\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-11-26T17:06:37+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: my-news-desk-post-type\n"
+
+#. Plugin Name of the plugin
+msgid "MyNewsDesk PostType Viewer"
+msgstr ""
+
+#. Description of the plugin
+msgid "Adds MyNewsDesk Posts to Wordpress."
+msgstr ""
+
+#. Author of the plugin
+msgid "Trippple"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://trippple.no/"
+msgstr ""
+
+#: includes/settings.php:36
+msgid "Trippple licenses"
+msgstr ""
+
+#: includes/settings.php:44
+msgid "MyNewsDesk Posts Plugin License"
+msgstr ""
+
+#: includes/settings.php:122
+msgid "Settings Saved"
+msgstr ""
+
+#: includes/settings.php:132
+msgid "Save"
+msgstr ""
+
+#: my-news-desk-post-type.php:23
+#: my-news-desk-post-type.php:24
+msgid "MyNewsDesk"
+msgstr ""
+
+#: my-news-desk-post-type.php:45
+#: my-news-desk-post-type.php:46
+#: my-news-desk-post-type.php:62
+msgid "MyNewsDesk Settings"
+msgstr ""
+
+#: my-news-desk-post-type.php:63
+msgid "Sync Mynewsdesk posts"
+msgstr ""
+
+#: my-news-desk-post-type.php:209
+msgid "Every Five Minutes"
+msgstr ""
+
+#: my-news-desk-post-type.php:261
+msgid "Invalid License! Please check your MyNewsDesk Post Viewer License!"
+msgstr ""
+
+#: my-news-desk-post-type.php:283
+msgid "Please enter your MyNewsDesk Post Viewer License !"
+msgstr ""
+
+#: my-news-desk-post-type.php:331
+msgid "MyNewsDesk Post Url"
+msgstr ""
+
+#: my-news-desk-post-type.php:357
+msgctxt "Tags taxonomy general name"
+msgid "Tags"
+msgstr ""
+
+#: my-news-desk-post-type.php:358
+msgctxt "taxonomy singular name"
+msgid "Tag"
+msgstr ""
+
+#: my-news-desk-post-type.php:359
+msgid "Search Tags"
+msgstr ""
+
+#: my-news-desk-post-type.php:360
+msgid "Popular Tags"
+msgstr ""
+
+#: my-news-desk-post-type.php:361
+msgid "All Tags"
+msgstr ""
+
+#: my-news-desk-post-type.php:364
+msgid "Edit Tag"
+msgstr ""
+
+#: my-news-desk-post-type.php:365
+msgid "Update Tag"
+msgstr ""
+
+#: my-news-desk-post-type.php:366
+msgid "Add New Tag"
+msgstr ""
+
+#: my-news-desk-post-type.php:367
+msgid "New Tag Name"
+msgstr ""
+
+#: my-news-desk-post-type.php:368
+msgid "Separate tags with commas"
+msgstr ""
+
+#: my-news-desk-post-type.php:369
+msgid "Add or remove tags"
+msgstr ""
+
+#: my-news-desk-post-type.php:370
+msgid "Choose from the most used tags"
+msgstr ""
+
+#: my-news-desk-post-type.php:371
+msgid "Tags"
+msgstr ""

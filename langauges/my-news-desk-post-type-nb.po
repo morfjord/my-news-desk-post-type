@@ -1,0 +1,144 @@
+# Copyright (C) 2021 Trippple
+# This file is distributed under the same license as the MyNewsDesk PostType Viewer plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: MyNewsDesk PostType Viewer 1.0.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/my-news-desk-post-"
+"type\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-11-26T17:06:37+00:00\n"
+"PO-Revision-Date: 2021-11-26 22:39+0530\n"
+"X-Generator: Poedit 3.0\n"
+"X-Domain: my-news-desk-post-type\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nb\n"
+
+#. Plugin Name of the plugin
+#, fuzzy
+msgid "MyNewsDesk PostType Viewer"
+msgstr "MyNewsDesk PostType Viewer"
+
+#. Description of the plugin
+#, fuzzy
+msgid "Adds MyNewsDesk Posts to Wordpress."
+msgstr "Legger til MyNewsDesk-innlegg i Wordpress."
+
+#. Author of the plugin
+msgid "Trippple"
+msgstr "Trippple"
+
+#. Author URI of the plugin
+#, fuzzy
+msgid "https://trippple.no/"
+msgstr "https://trippple.no/"
+
+#: includes/settings.php:36
+#, fuzzy
+msgid "Trippple licenses"
+msgstr "Tripple-lisenser"
+
+#: includes/settings.php:44
+#, fuzzy
+msgid "MyNewsDesk Posts Plugin License"
+msgstr "MyNewsDesk Posts Plugin-lisens"
+
+#: includes/settings.php:122
+msgid "Settings Saved"
+msgstr "Innstillinger lagret"
+
+#: includes/settings.php:132
+msgid "Save"
+msgstr "Lagre"
+
+#: my-news-desk-post-type.php:23 my-news-desk-post-type.php:24
+#, fuzzy
+msgid "MyNewsDesk"
+msgstr "MyNewsDesk"
+
+#: my-news-desk-post-type.php:45 my-news-desk-post-type.php:46
+#: my-news-desk-post-type.php:62
+#, fuzzy
+msgid "MyNewsDesk Settings"
+msgstr "MyNewsDesk-innstillinger"
+
+#: my-news-desk-post-type.php:63
+#, fuzzy
+msgid "Sync Mynewsdesk posts"
+msgstr "Synkroniser Mynewsdesk-innlegg"
+
+#: my-news-desk-post-type.php:209
+msgid "Every Five Minutes"
+msgstr "Hvert femte minutt"
+
+#: my-news-desk-post-type.php:261
+#, fuzzy
+msgid "Invalid License! Please check your MyNewsDesk Post Viewer License!"
+msgstr "Ugyldig lisens! Vennligst sjekk MyNewsDesk Post Viewer-lisensen din!"
+
+#: my-news-desk-post-type.php:283
+#, fuzzy
+msgid "Please enter your MyNewsDesk Post Viewer License !"
+msgstr "Vennligst skriv inn MyNewsDesk Post Viewer-lisensen din!"
+
+#: my-news-desk-post-type.php:331
+#, fuzzy
+msgid "MyNewsDesk Post Url"
+msgstr "MyNewsDesk Post URL"
+
+#: my-news-desk-post-type.php:357
+msgctxt "Tags taxonomy general name"
+msgid "Tags"
+msgstr "Stikkord"
+
+#: my-news-desk-post-type.php:358
+msgctxt "taxonomy singular name"
+msgid "Tag"
+msgstr "Stikkord"
+
+#: my-news-desk-post-type.php:359
+msgid "Search Tags"
+msgstr "Søk etter stikkord"
+
+#: my-news-desk-post-type.php:360
+msgid "Popular Tags"
+msgstr "Populære stikkord"
+
+#: my-news-desk-post-type.php:361
+msgid "All Tags"
+msgstr "Alle stikkord"
+
+#: my-news-desk-post-type.php:364
+msgid "Edit Tag"
+msgstr "Rediger Stikkord"
+
+#: my-news-desk-post-type.php:365
+msgid "Update Tag"
+msgstr "Oppdater stikkord"
+
+#: my-news-desk-post-type.php:366
+msgid "Add New Tag"
+msgstr "Legg til stikkord"
+
+#: my-news-desk-post-type.php:367
+msgid "New Tag Name"
+msgstr "Nytt stikkordsnavn"
+
+#: my-news-desk-post-type.php:368
+msgid "Separate tags with commas"
+msgstr "Separer stkkord med komma"
+
+#: my-news-desk-post-type.php:369
+msgid "Add or remove tags"
+msgstr "Legg til eller fjern stikkord"
+
+#: my-news-desk-post-type.php:370
+msgid "Choose from the most used tags"
+msgstr "Velg blant de mest brukte stikkord"
+
+#: my-news-desk-post-type.php:371
+msgid "Tags"
+msgstr "Stikkord"
