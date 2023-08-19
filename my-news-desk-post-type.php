@@ -14,7 +14,6 @@ Domain Path: /languages
 require_once 'includes/mndpt-admin-notices.php';
 function mndpt_create_posttype()
 {
-
     register_post_type(
         'mynewsdesk',
         // CPT Options
@@ -28,10 +27,12 @@ function mndpt_create_posttype()
             'rewrite' => array('slug' => 'mynewsdesk'),
             'show_in_rest' => true,
             'taxonomies' => array('category'),
+            'supports' => array('title', 'editor', 'thumbnail'), // Added 'thumbnail' support
         )
     );
 }
 add_action('init', 'mndpt_create_posttype');
+
 
 /**
  * Add Mynewsdesk settings page
@@ -168,15 +169,22 @@ function mndpt_get_post_attributes($post)
     );
 }
 
+
 function mndpt_set_post_image($post_id, $post)
 {
-    $image_url        = strval($post->image); // Define the image URL here
+    $image_url = strval($post->image); // Define the image URL here
+    echo "Image URL: " . $image_url . "<br>"; // Debugging line
+
     $wp_filetype = wp_check_filetype($image_url, null);
-    $image_name       = 'mynewsdeskpost-' . $post->id . '.' . $wp_filetype['type'];
-    $upload_dir       = wp_upload_dir(); // Set upload folder
-    $image_data       = file_get_contents($image_url); // Get image data
+    echo "File Extension: " . $wp_filetype['ext'] . "<br>"; // Debugging line
+
+    $image_name = 'mynewsdeskpost-' . $post->id . '.' . $wp_filetype['ext'];
+    $upload_dir = wp_upload_dir(); // Set upload folder
+    $image_data = file_get_contents($image_url); // Get image data
     $unique_file_name = wp_unique_filename($upload_dir['path'], $image_name); // Generate unique name
-    $filename         = basename($unique_file_name); // Create image file name
+    $filename = basename($unique_file_name); // Create image file name
+
+    echo "Generated Filename: " . $filename . "<br>"; // Debugging line
 
     if (wp_mkdir_p($upload_dir['path'])) {
         $file = $upload_dir['path'] . '/' . $filename;
@@ -188,9 +196,9 @@ function mndpt_set_post_image($post_id, $post)
 
     $attachment = array(
         'post_mime_type' => $wp_filetype['type'],
-        'post_title'     => sanitize_file_name(strval($post->image_caption)),
-        'post_content'   => '',
-        'post_status'    => 'inherit'
+        'post_title' => sanitize_file_name($filename), // Use filename for title
+        'post_content' => '',
+        'post_status' => 'inherit'
     );
 
     $attach_id = wp_insert_attachment($attachment, $file, $post_id);
@@ -199,6 +207,7 @@ function mndpt_set_post_image($post_id, $post)
     wp_update_attachment_metadata($attach_id, $attach_data);
     set_post_thumbnail($post_id, $attach_id);
 }
+
 
 
 
@@ -451,3 +460,22 @@ function mndpt_get_categories($post)
     }
     return $tags;
 }
+
+// Add new column for featured image
+function mndpt_add_image_column($columns) {
+    if (isset($_GET['post_type']) && $_GET['post_type'] == 'mynewsdesk') {
+        $columns['featured_image'] = 'Featured Image';
+    }
+    return $columns;
+}
+add_filter('manage_posts_columns', 'mndpt_add_image_column');
+
+// Display the featured image in the new column
+function mndpt_display_image_column($column_name, $post_id) {
+    if ($column_name == 'featured_image') {
+        $post_thumbnail_id = get_post_thumbnail_id($post_id);
+        $post_thumbnail_img = wp_get_attachment_image_src($post_thumbnail_id, 'thumbnail');
+        echo '<img src="' . $post_thumbnail_img[0] . '" width="50" height="50" />';
+    }
+}
+add_action('manage_posts_custom_column', 'mndpt_display_image_column', 10, 2);
