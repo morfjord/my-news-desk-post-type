@@ -169,45 +169,39 @@ function mndpt_get_post_attributes($post)
     );
 }
 
+//Ny endringer Martin
+function mndpt_set_post_image($post_id, $image_url) {
+    // Download the image
+    $response = wp_remote_get($image_url);
+    $image_data = wp_remote_retrieve_body($response);
 
-function mndpt_set_post_image($post_id, $post)
-{
-    $image_url = strval($post->image); // Define the image URL here
-    echo "Image URL: " . $image_url . "<br>"; // Debugging line
+    // Get the filename
+    $filename = basename($image_url);
 
-    $wp_filetype = wp_check_filetype($image_url, null);
-    echo "File Extension: " . $wp_filetype['ext'] . "<br>"; // Debugging line
-
-    $image_name = 'mynewsdeskpost-' . $post->id . '.' . $wp_filetype['ext'];
-    $upload_dir = wp_upload_dir(); // Set upload folder
-    $image_data = file_get_contents($image_url); // Get image data
-    $unique_file_name = wp_unique_filename($upload_dir['path'], $image_name); // Generate unique name
-    $filename = basename($unique_file_name); // Create image file name
-
-    echo "Generated Filename: " . $filename . "<br>"; // Debugging line
-
-    if (wp_mkdir_p($upload_dir['path'])) {
-        $file = $upload_dir['path'] . '/' . $filename;
-    } else {
-        $file = $upload_dir['basedir'] . '/' . $filename;
+    // Save the image to the uploads directory
+    $upload = wp_upload_bits($filename, null, $image_data);
+    if ($upload['error']) {
+        return false; // Return false if there was an error
     }
 
-    file_put_contents($file, $image_data);
-
+    // Create an attachment
     $attachment = array(
-        'post_mime_type' => $wp_filetype['type'],
-        'post_title' => sanitize_file_name($filename), // Use filename for title
+        'post_mime_type' => 'image/jpeg', // Set the MIME type
+        'post_title' => $filename,
         'post_content' => '',
-        'post_status' => 'inherit'
+        'post_status' => 'inherit',
     );
+    $attach_id = wp_insert_attachment($attachment, $upload['file'], $post_id);
 
-    $attach_id = wp_insert_attachment($attachment, $file, $post_id);
-    require_once(ABSPATH . 'wp-admin/includes/image.php');
-    $attach_data = wp_generate_attachment_metadata($attach_id, $file);
+    // Generate attachment metadata
+    $attach_data = wp_generate_attachment_metadata($attach_id, $upload['file']);
     wp_update_attachment_metadata($attach_id, $attach_data);
-    set_post_thumbnail($post_id, $attach_id);
-}
 
+    // Set the featured image
+    set_post_thumbnail($post_id, $attach_id);
+
+    return true;
+}
 
 
 
@@ -439,6 +433,27 @@ function mndpt_get_tags( $post )
  * @param $post
  * @return array
  */
+
+// Include the custom fields file
+include plugin_dir_path(__FILE__) . 'include/custom-fields.php';
+
+
+// Assuming $post_id is the ID of the post that was just created or updated
+if ($post_id) {
+    $photo_url = 'URL_OF_THE_PHOTO'; // Replace with the actual photo URL
+    update_field('photo', $photo_url, $post_id);
+}
+
+
+// After setting the featured image
+if ($post_id && $photo_url) {
+    update_field('photo_my_news', $photo_url, $post_id);
+}
+
+
+
+
+
 function mndpt_get_categories($post)
 {
     $tags = array();
