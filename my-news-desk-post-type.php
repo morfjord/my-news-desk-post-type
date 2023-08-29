@@ -199,9 +199,19 @@ function mndpt_set_post_image($post_id, $image_url) {
 
     // Set the featured image
     set_post_thumbnail($post_id, $attach_id);
+	
+	// Update the ACF field 'field_64e10451161c6' Remember that ACF need to have a photo_my_new feild - this is a temperay fix
+if ($post_id && $photo_url) {
+    update_field('field_64e10451161c6', $photo_url, $post_id);
+    error_log('ACF field updated with photo URL: ' . $photo_url);
+}
 
+	
+	
     return true;
 }
+
+
 
 
 
